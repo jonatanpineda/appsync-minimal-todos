@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import AWSAppSyncClient, { buildSubscription } from 'aws-appsync';
-import { Rehydrated, graphqlMutation } from 'aws-appsync-react';
+import AWSAppSyncClient from 'aws-appsync';
+import { Rehydrated } from 'aws-appsync-react';
 import AppSyncConfig from './awsconfiguration';
 import { ApolloProvider } from 'react-apollo';
+import AllTodosWithData from "./containers/AllTodosWithData";
+import AddTodoOffline from "./containers/AddTodoOffline";
 
 
 const client = new AWSAppSyncClient({
@@ -20,6 +21,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <AllTodosWithData />
+        <AddTodoOffline />
       </div>
     );
   }
